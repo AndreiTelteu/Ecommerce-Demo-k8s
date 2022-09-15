@@ -9,7 +9,7 @@ spec:
   dependencies:
     - name: event-sensor
       eventSourceName: ecommercedemo-webhooks
-      eventName: ecommercedemo-astro-solidjs-webhook
+      eventName: astro-solidjs-webhook
       filters:
         data:
           - path: body.ref

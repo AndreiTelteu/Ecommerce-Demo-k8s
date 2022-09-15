@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: astro-solidjs
+  project: ecommercedemo
   source:
     repoURL: https://github.com/AndreiTelteu/Ecommerce-Demo-k8s.git
     targetRevision: HEAD

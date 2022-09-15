@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: ecommercedemo-webhooks
+  namespace: argo-events
+spec:
+  github:
+    astro-solidjs-webhook:
+      owner: "AndreiTelteu"
+      repository: "ecommercedemo-astro-solidjs"
+      active: true
+      contentType: "json"
+      webhook:
+        port: "12000"
+        endpoint: /ecommercedemo/astro-solidjs/github-webhook
+        method: POST
+      events:
+        - "*"
+      webhookSecret:
+        name: event-ecommercedemo-astro-solidjs-github-secret
+        key: secret
+
+---
+
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: event-ecommercedemo-astro-solidjs-github-secret
+  namespace: argo-events
+spec:
+  encryptedData:
+    secret: AgDIO/rOzbwDS8T8UJFog46vxB3r8NvsqElnHJkkYJ+kPGhMa3jYOsOoy889V38jSEg34YGOUyZEDqCZt5hLBUnxziuN97oexQif2Z6e4/40WxQGzB9VRL1ULvnM86gBp0e5cyFH4sOeyukzzStjykbiBIne+I2GO/e6PX+8FmHPsHWrfmK0vQxzs2hvJNqSbl304R3FDzKfQcMIZoOe8OZ2lGPPOJm8UrTR7OqH/aKeKmf76tw0CIZ8PaqhqCFiQkh98FiAuVUfrTa+T5X2Y0qa76ErUcIG2sWXVDERdCcdenbCB+9+0nklrpkuhJ3X9oCKrO6UqJa2E586EHtXb2q+Ew9aGXopAnJJSO/CNBcWj4LUXfZ7cTC0rqHqn+1b9pDgpPBA986asYwc2pMs5pTGnPXHOg8dKzA8CUmv8WBC141qaH4iEoDXlKDge+g4Ar56tf7kwedhOtpTMGwh/oYTeuX13dhFpRSekgJbDyHnG//2K0VBxFptjfLjlhHn812C6C+vSqw7R/6KZj+f1kO1GEGpy8TbVehFCKHmFz/xCfwqiUbsr4qinRYJS+s8GjGvgIQVhXJ17AhINDIPRGiiTUGFvAFRw1G33MjzgNdinGjCfpFtYzfNOceKi26nl+F2rpgimg0qtxgtsC180anDm4gvTMhJJQcrSYdpFTAJqHGSTb6VDxcGUfqDJ8aHsTXps41TiHygflxthtw5Ww==
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: event-ecommercedemo-astro-solidjs-github-secret
+      namespace: argo-events

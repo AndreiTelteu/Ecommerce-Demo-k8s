@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Ecommerce Demo app made with Astro and Solid-JS
+name: ecommercedemo-astro-solidjs
+version: "1.0.0"

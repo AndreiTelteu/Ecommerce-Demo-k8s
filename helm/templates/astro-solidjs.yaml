@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ecommercedemo-astro-solidjs
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: astro-solidjs
+  source:
+    repoURL: https://github.com/AndreiTelteu/Ecommerce-Demo-k8s.git
+    targetRevision: HEAD
+    path: astro-solidjs
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ecommercedemo
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: astro-solidjs
+  namespace: ecommercedemo
+spec:
+  selector:
+    app: astro-solidjs
+  type: ClusterIP
+  ports:
+  - name: astro-solidjs-nginx
+    protocol: TCP
+    port: 8080
+    targetPort: 8080

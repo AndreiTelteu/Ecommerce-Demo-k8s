@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Ecommerce Demo apps made in Laravel, Astro-Solid-JS, and more
+name: ecommercedemo
+version: "1.0.0"

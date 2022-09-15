@@ -12,7 +12,7 @@ spec:
       contentType: "json"
       webhook:
         port: "12000"
-        endpoint: /ecommercedemo/astro-solidjs/github-webhook
+        endpoint: /ecommercedemo-astro-solidjs/github-webhook
         method: POST
       events:
         - "*"
